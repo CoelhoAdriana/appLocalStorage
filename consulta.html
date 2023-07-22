@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" >
+    <title>LIVROS - inventário</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/print.css" media="print" rel="stylesheet">
+    <link href="css/main.css" media="screen"  rel="stylesheet">
+    <script src="js/livros.js"></script>    
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-3.0.0.min.js"></script>
+    </head>
+    <body onload="carregarListaLivros()">
+        <!-- superior -->
+        <div class="d-flex container">
+            <div class="row col-12 justify-content-evenly">
+                <div class=" naoImprimir caixas col-3 fundoColor1c roundLeft hidden-on-small" id="superiorEsquerdo"><img src="imagens/rosaRoxa.png" alt="logo" style="width: 90%; height: 90%"></div>
+                <div class=" naoImprimir caixas col-4 fixarFundo" id="superiorCentro"><h2>Lista de livros</h2></div>
+                <div class=" naoImprimir caixas col-3 fundoColor1c roundLeft invert" id="superiorDireito"><img src="imagens/rosaRoxa.png" alt="logo" style="width: 90%; height: 90%"></div>
+            </div>
+        </div>
+        <!-- menu -->
+        <div class="d-flex container ">
+          <div class="row col-12 justify-content-evenly mt-4 mb-4">
+            <div class="caixas col-4"></div>  
+            <div class="caixas col-8  naoImprimir">
+                <button class=" btn btnNavegacao" id="atualizar"><a href="consulta.html"> <a href="index.html"> Adicionar outro livro </a></button>
+                <button class=" btn btnNavegacao" id="imprimir" onclick="print()"> Imprimir a lista</button>
+              </div>
+          </div>
+      </div>
+<!-- teste registro-->
+<div class="d-flex container justify-content-evenly" id="inferiorCentro" style="box-shadow: 0 0;">
+<div class="row col-12 justify-content-evenly fade" id="sucessoGravacao"  style="border-radius: 20px">
+<div id="mensagemModal"></div>
+</div> 
+</div>
+        <!-- principal -->
+        <div class="d-flex container mb-4 ">
+            <div class="row col-12 justify-content-evenly">
+                <div class="caixas col-10 fundoColor2a  roundCanto" id="inferiorCentro">
+                  <!-- seletores -->
+                  <div class="container">
+                    <div class="row  naoImprimir">
+                      <div class=" col mb-5"><h4>Livros cadastrados - Filtro e Pesquisa</h4></div>
+                    </div>
+                    <div class="row mb-4  resizeOnSmall  naoImprimir">
+                      <div class="col-7">
+                        <input type="text" class=" form-control resizeOnSmall" placeholder="Título da obra" id="titulo" />
+                      </div>              
+                      <div class="col-5">
+                        <input type="text" class=" form-control resizeOnSmall" placeholder="Autor" id="autor" />
+                      </div>
+                      </div>
+                      <div class="row resizeOnSmall  naoImprimir">
+                        <div class="col-4">
+                          <select class=" form-control resizeOnSmall" id="genero">
+                            <option value="">Gênero &raquo;</option>
+                            <option value="ficcao">FICÇÃO</option>
+                            <option value="fantasia">FANTASIA</option>
+                            <option value="drama">DRAMA</option>
+                            <option value="tecnicos">TÉCNICOS</option>
+                            <option value="aprimoramentoPessoal">APRIMORAMENTO PESSOAL</option>
+                          </select>
+                        </div>              
+                        <div class="col-4">
+                          <select class=" form-control  resizeOnSmall" id="statusPessoal">
+                            <option value="">Estado de leitura &raquo;</option>
+                            <option value="novo">NOVO</option>
+                            <option value="emLeitura">EM LEITURA</option>
+                            <option value="lido">LIDO</option>
+                          </select>
+                        </div>
+                        <div class=" col-4 d-flex justify-content-end  resizeOnSmall">
+                        <button type="button" class="btn btnSalvar" onclick="pesquisarLivros()">
+                          <i>PESQUISAR</i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+            </div>
+            
+        </div>
+        <div class="col-12">
+          <div class="row justify-content-evenly">
+            <div class="col-10" >
+              <h2 class="imprimir"><img src="imagens/rosaRoxa.png" alt="logo"><br> LISTA DOS LIVROS CADASTRADOS</h2>
+              <table class="table  fundoColor3c" >
+                <thead>
+                  <tr>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Gênero</th>
+                    <th>Status de leitura</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody id="listaLivros">
+                </tbody>
+              </table>
+            </div>
+          </div>
+          </div>
+        </div>
+
+    </body>
+</html>
